@@ -12,7 +12,7 @@ if floor is true the number will be an integer <br>
 if floor is false the number will be a float <br>
 
 <h3>rdmAround( x, floor): </h3>
-returns a random number around ( bigger or smaller ) <br>
+returns a random number from -x to x <br>
 if floor is true the number will be an integer <br>
 if floor is false the number will be a float <br>
 
