@@ -25,9 +25,10 @@ function randomColor (){
 }
 
 let canvas = $('canvas')
+let container = $('container')
 let c = canvas.getContext('2d')
-let width = window.innerWidth
-let height = window.innerHeight - 9
+let width = container.clientWidth
+let height = container.clientHeight
 let fps = 100
 
 canvas.width = width
@@ -36,6 +37,7 @@ canvas.height = height
 c.fillStyle = '#CCC'
 c.strokeStyle = '#CCC'
 
+// the mouse object will always follow the mouse cursor
 let mouse = {
     x: width/2,
     y: height/2,
@@ -119,6 +121,7 @@ class Object {
             this.x += this.vx
             this.y += this.vy
         }
+
     }
 }
 
@@ -135,6 +138,12 @@ function loop(){
     circle.x = mouse.x
     circle.y = mouse.y
     circle.update()
+
+    // the canvas will auto resize with the container
+    width = container.clientWidth
+    height = container.clientHeight
+    canvas.width = width
+    canvas.height = height
 
 //   --rendering--
 
