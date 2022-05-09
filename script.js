@@ -24,8 +24,8 @@ function randomColor (){
     return `hsl( ${rdm(360)}, ${random( 20, 70, true)}%, 50%)`
 }
 
-let canvas = $('canvas')
 let container = $('container')
+let canvas = $('canvas')
 let c = canvas.getContext('2d')
 let width = container.clientWidth
 let height = container.clientHeight
@@ -37,13 +37,12 @@ canvas.height = height
 c.fillStyle = '#CCC'
 c.strokeStyle = '#CCC'
 
-// the mouse object will always follow the mouse cursor
 let mouse = {
     x: width/2,
     y: height/2,
     z: false
 }
-canvas.addEventListener( 'mousemove', ( event)=>{
+container.addEventListener( 'mousemove', ( event)=>{
     mouse.x = event.x
     mouse.y = event.y
 })
@@ -121,7 +120,6 @@ class Object {
             this.x += this.vx
             this.y += this.vy
         }
-
     }
 }
 
@@ -139,12 +137,6 @@ function loop(){
     circle.y = mouse.y
     circle.update()
 
-    // the canvas will auto resize with the container
-    width = container.clientWidth
-    height = container.clientHeight
-    canvas.width = width
-    canvas.height = height
-
 //   --rendering--
 
     c.clearRect( 0, 0, width, height)
@@ -153,14 +145,6 @@ function loop(){
 }
 
 let circle = new Object( width/2, height/2, 'circle', 30, 8, randomColor(), randomColor())
-
-
-
-
-
-
-
-
 
 
 
